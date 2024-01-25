@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- JPA Hibernate 설정 파일
+	DB 및 JPA 관련 설정 코드 작성 부분 
+-->
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    
+    <!-- name - 프로젝트 이름과 동일하게 작성 -->
+    <persistence-unit name="step04mvc2practice">
+    
+    	<!-- DB 및 JPA 부가 옵션 설정 코드 작성 부분 -->
+    	<properties>
+    		
+    		<!-- MySQL DBMS 연결을 위한 설정 -->
+    		<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+    		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC"/>
+    		<property name="javax.persistence.jdbc.user" value="root"/>
+    		<property name="javax.persistence.jdbc.password" value="1234"/>
+    		
+    		<!-- 특정 DBMS만의 방언 설정 -->
+    		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+    		
+    		
+    		<!-- 옵션(선택) 속성 -->
+    		
+    		<!-- 콘솔에 실제 수행되는 SQL 쿼리도 조회 -->
+    		<property name="hibernate.show_sql" value="true" />
+    		
+    		<!-- SQL의 출력 형태 정렬 -->
+    		<property name="hibernate.format_sql" value="true" />
+    		
+    		
+    		<!-- 애플리케이션 실행 시 DB 테이블을 자동으로 생성할 것인지? 에 대한 설정 -->
+    		<!-- create 옵션 - '애플리케이션을 실행할 때마다' 
+    						  기존에 테이블이 존재할 경우, 해당 테이블을 제거(DROP), 테이블을 새로 생성(CREATE)
+    						  (DROP + CREATE 쿼리가 수행됨)
+    			 update 옵션 - DB테이블과 엔티티 맵핑 정보를 비교, 변경된 사항을 수정
+    			 validate 옵션 - JPA가 테이블을 직접 생성하지 않고, DDL 쿼리와 맵핑이 잘 되었는지 검증
+    			 none 옵션 - 아무것도 수행하지 않는 옵션
+    		 -->
+    		<property name="hibernate.hbm2ddl.auto" value="none" />
+    		
+    		
+    	</properties>
+    </persistence-unit>
+    
+</persistence>
+
+
+
+
+
+
+
+
